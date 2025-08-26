@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Placar</title>
+    <link rel="stylesheet" href="scoreboard.css" />
+  </head>
+  <body>
+    <div class="scoreboard">
+      <!-- Time Azul -->
+      <div class="team blue">
+        <div class="sets" id="sets-blue">0</div>
+        <div class="points" id="points-blue">0</div>
+        <button onclick="addPoint('blue')">+ Ponto Azul</button>
+        <button onclick="addSet('blue')">+ Set Azul</button>
+      </div>
+
+      <!-- Time Vermelho -->
+      <div class="team red">
+        <div class="sets" id="sets-red">0</div>
+        <div class="points" id="points-red">0</div>
+        <button onclick="addPoint('red')">+ Ponto Vermelho</button>
+        <button onclick="addSet('red')">+ Set Vermelho</button>
+      </div>
+    </div>
+
+    <script src="scoreboard.js"></script>
+  </body>
+</html>

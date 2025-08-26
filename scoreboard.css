@@ -1,0 +1,72 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: rgba(255, 255, 255, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.scoreboard {
+  display: flex;
+  width: 80%;
+  max-width: 1000px;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.team {
+  flex: 1;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  border-radius: 20px;
+}
+
+.team.blue {
+  background: linear-gradient(135deg, #007bff, #004085);
+}
+
+.team.red {
+  background: linear-gradient(135deg, #dc3545, #6a000f);
+}
+
+.points {
+  font-size: 8rem;
+  font-weight: bold;
+}
+
+.sets {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  opacity: 0.9;
+}
+
+button {
+  margin: 5px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.blue button {
+  background: #ffffffaa;
+  color: #004085;
+}
+
+.red button {
+  background: #ffffffaa;
+  color: #6a000f;
+}
+
+button:hover {
+  opacity: 0.8;
+}

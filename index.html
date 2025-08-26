@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SkillMatch</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-left">SkillMatch</div>
+    <div class="navbar-right">
+      <a href="scoreboard.html">Placar</a>
+    </div>
+  </nav>
+  <body>
+    <div class="container">
+      <!-- Home Page -->
+      <div id="homePage" class="page home-layout">
+        <div class="welcome-text">
+          <h1>Bem-vindo</h1>
+          <p>
+            Bem-vindo ao <b>SkillMatch</b>! Aqui você e seus amigos podem criar
+            times balanceados de forma rápida e simples. Basta escolher o número
+            de times e depois informar os jogadores com suas respectivas notas.
+          </p>
+        </div>
+        <div class="box">
+          <select id="numTimesSelect">
+            <option value="">Quantos times?</option>
+            <option value="2">2 Times</option>
+            <option value="3">3 Times</option>
+            <option value="4">4 Times</option>
+            <option value="5">5 Times</option>
+            <option value="6">6 Times</option>
+            <option value="7">7 Times</option>
+            <option value="8">8 Times</option>
+          </select>
+          <button onclick="startSetup()">Nomes e Notas:</button>
+          <button onclick="goToPlayers()">Iniciar Avaliação</button>
+        </div>
+      </div>
+
+      <!-- Montar Times -->
+      <div id="setupPage" class="page" style="display: none">
+        <h2>Adicionar Jogadores</h2>
+        <div class="box player-inputs">
+          <input type="text" id="playerName" placeholder="Nome" />
+          <input
+            type="number"
+            id="playerSkill"
+            placeholder="Nota (0-10)"
+            min="0"
+            max="10"
+          />
+          <button onclick="addPlayerFromInput()">Adicionar Jogador</button>
+        </div>
+        <div class="box">
+          <ul id="playerList"></ul>
+        </div>
+        <div class="box">
+          <button onclick="balanceAndShowTeams()">Iniciar Balanceamento</button>
+        </div>
+      </div>
+
+      <!-- Resultados -->
+      <div id="resultPage" class="page" style="display: none">
+        <h2>Times Formados</h2>
+        <div class="teams-container" id="teamsContainer"></div>
+        <button onclick="restart()">Voltar ao início</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
