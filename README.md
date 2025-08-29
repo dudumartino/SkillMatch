@@ -2,4 +2,4 @@ Esse site tem o propósito de ajudar a equilibrar times para esportes como vôle
 
 Para utilizar é bem simples, basta escolher quantos times terão na partida, essa informação é usada para escolher qual o melhor método para fazer a distribuição e balanceamento dos jogadores, e logo após você adiciona os Nomes e Notas dos jogadores.
 
-Segue o link do projeto hospedado:
+Segue o link do projeto hospedado: https://skill-match-b4y6.vercel.app/
