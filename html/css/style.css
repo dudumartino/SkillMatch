@@ -152,3 +152,104 @@ ul {
 .navbar-left a:hover {
   color: #4cafef; /* Cor ao passar o mouse, igual aos outros */
 }
+
+/* --- ESTILOS PARA O MODAL E O FUNDO DESFOCADO --- */
+
+/* O fundo que cobre a página inteira */
+#modal-backdrop {
+  display: none; /* Começa escondido */
+  position: fixed; /* Fica fixo na tela */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Cor preta com transparência */
+  backdrop-filter: blur(5px); /* O EFEITO DE DESFOQUE! */
+  z-index: 999; /* Garante que fique acima de tudo, menos do modal */
+}
+
+/* O container do modal (quadro branco) */
+.modal-container {
+  display: none; /* Começa escondido */
+  position: fixed; /* Fixo no centro da tela */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Truque para centralizar perfeitamente */
+
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.95
+  ); /* Branco levemente translúcido, como na imagem */
+  padding: 25px 35px;
+  border-radius: 18px; /* Bordas arredondadas */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25); /* Sombra para dar profundidade */
+  width: 90%;
+  max-width: 550px; /* Largura máxima */
+  z-index: 1000; /* Fica na frente de TUDO, inclusive do fundo */
+}
+
+/* Classe 'active' que será adicionada via JavaScript para mostrar os elementos */
+#modal-backdrop.active,
+.modal-container.active {
+  display: block;
+}
+
+/* Botão de fechar (X) */
+.modal-container .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.modal-container .close-btn:hover {
+  color: #000;
+}
+
+/* Título do modal */
+.modal-container h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+}
+
+/* Lista para as frases */
+.phrases-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Cada item da lista (cada frase) */
+.phrases-list li {
+  display: flex; /* Habilita o alinhamento flexível */
+  justify-content: space-between; /* Empurra o texto para um lado e os pontos para o outro */
+  align-items: center; /* Alinha verticalmente no centro */
+  padding: 12px 0;
+  border-bottom: 1px dashed #ccc;
+  font-size: 16px;
+  color: #555;
+}
+
+.phrases-list .points {
+  background-color: #f0f0f0; /* Cor de fundo para os pontos */
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #333;
+  margin-left: 15px; /* Garante um espaço mínimo entre o texto e os pontos */
+}
+
+/* Remove a linha do último item */
+.phrases-list li:last-child {
+  border-bottom: none;
+}

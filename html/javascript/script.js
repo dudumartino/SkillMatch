@@ -197,3 +197,38 @@ function displayResult(teams) {
     container.appendChild(div);
   });
 }
+// ------------------ Modal "Como Balancear?" ------------------
+
+// Espera o documento HTML carregar completamente
+document.addEventListener("DOMContentLoaded", () => {
+  // Seleciona os elementos do HTML que vamos usar
+  const openModalBtn = document.getElementById("open-modal-btn");
+  const modal = document.getElementById("how-to-modal");
+  const backdrop = document.getElementById("modal-backdrop");
+  const closeModalBtn = document.querySelector("#how-to-modal .close-btn");
+
+  // Função para abrir o modal
+  const openModal = () => {
+    backdrop.classList.add("active");
+    modal.classList.add("active");
+  };
+
+  // Função para fechar o modal
+  const closeModal = () => {
+    backdrop.classList.remove("active");
+    modal.classList.remove("active");
+  };
+
+  // Adiciona os "escutadores de eventos"
+  // 1. Clicar no link "Como Balancear?" abre o modal
+  openModalBtn.addEventListener("click", (event) => {
+    event.preventDefault(); // Previne o comportamento padrão do link (de recarregar a página)
+    openModal();
+  });
+
+  // 2. Clicar no 'X' fecha o modal
+  closeModalBtn.addEventListener("click", closeModal);
+
+  // 3. Clicar fora do modal (no fundo desfocado) também fecha
+  backdrop.addEventListener("click", closeModal);
+});
