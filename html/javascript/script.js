@@ -191,7 +191,7 @@ function displayResult(teams) {
     div.innerHTML = `<h3>Time ${idx + 1}</h3>`;
     team.forEach((p) => {
       const playerDiv = document.createElement("div");
-      playerDiv.textContent = `${p.name} (Nota: ${p.skill})`;
+      playerDiv.textContent = `${p.name}`;
       div.appendChild(playerDiv);
     });
     container.appendChild(div);
