@@ -6,7 +6,6 @@ body {
   background: url("../assets/wallpaperVolei.jpg") no-repeat center center fixed;
   background-size: cover;
   color: #333;
-  overflow-y: hidden; /* Esconde a barra de rolagem vertical */
 }
 
 /* Container */
@@ -23,13 +22,18 @@ body {
 
 .home-layout {
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center; /* AGORA CENTRALIZA OS ITENS */
   align-items: center;
   height: 100vh;
+  gap: 40px; /* ADICIONA ESPAÇO ENTRE AS CAIXAS (texto e botões) */
 }
 
 /* Caixas de conteúdo */
-.welcome-text,
+.welcome-text {
+  max-width: 550px; /* Limita a largura do texto em PCs */
+  width: auto; /* Permite que ele cresça até o max-width */
+}
+
 .box {
   background: rgba(255, 255, 255, 0.92);
   padding: 25px;
@@ -37,7 +41,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  width: 320px;
+  width: 320px; /* Largura original para o box de botões */
   max-width: 90%;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
   transition: transform 0.2s ease-in-out;
@@ -252,4 +256,323 @@ ul {
 /* Remove a linha do último item */
 .phrases-list li:last-child {
   border-bottom: none;
+}
+
+/*
+ * Adicione essas regras no final do seu arquivo style.css
+ * para garantir que elas sobrescrevam as regras anteriores em telas pequenas.
+ */
+
+/* ------------------------------------------------------------------- */
+/* REGRAS PARA TELAS MENORES (Celulares e Tablets) */
+/* ------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  body {
+    /* REMOVA a linha "overflow-y: hidden" do seu código original */
+    overflow-y: visible; /* Apenas para garantir que a rolagem funcione */
+    background-position: left center; /* Ajusta a posição da imagem de fundo para celulares */
+  }
+
+  /* Ajusta o layout principal para que os elementos fiquem empilhados */
+  .home-layout {
+    flex-direction: column;
+    justify-content: flex-start;
+    height: auto; /* Remove a altura fixa para permitir que o conteúdo se expanda */
+    padding-top: 100px; /* Adiciona um espaço para que o conteúdo não fique embaixo da navbar */
+  }
+
+  /* Faz com que a barra de navegação se empilhe */
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 15px;
+  }
+
+  .navbar-right {
+    display: flex; /* Garante que os links fiquem lado a lado novamente, mas em uma coluna separada */
+    gap: 15px;
+  }
+}
+
+/* ------------------------------------------------------------------- */
+/* ESTILOS DO MENU HAMBÚRGUER */
+/* ------------------------------------------------------------------- */
+
+/* Esconde o botão do hambúrguer em telas grandes */
+.hamburger {
+  display: none;
+}
+
+/* Esconde o menu de links no celular por padrão */
+@media (max-width: 768px) {
+  .store-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .reset-button {
+    width: 90%; /* Faz o botão ocupar a largura total no celular */
+    max-width: 350px;
+  }
+
+  .scoreboard {
+    flex-direction: column; /* Continua empilhando os times */
+    align-items: center;
+    gap: 20px; /* Espaço entre os times empilhados */
+    margin-top: 100px; /* Ajusta a margem para telas menores */
+  }
+
+  .team {
+    width: 90%; /* Faz com que o card ocupe quase a largura toda da tela */
+    max-width: 350px; /* Impede que ele fique muito largo em tablets */
+    padding: 15px; /* Reduz o padding interno */
+  }
+
+  .sets,
+  .points {
+    font-size: 2.5rem; /* Reduz o tamanho da fonte dos números */
+  }
+  .scoreboard {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Mostra o botão do hambúrguer */
+  .hamburger {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1001; /* Fica acima de tudo */
+  }
+
+  .hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: #2980b9;
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Estiliza o menu lateral que vai aparecer */
+  .navbar-right {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Inicia fora da tela, à direita */
+    width: 70%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 60px 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 30px;
+    transition: right 0.3s ease-in-out; /* Adiciona a transição de slide */
+    z-index: 1000;
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Classe para quando o menu estiver ativo (visível) */
+  .navbar-right.active {
+    right: 0;
+  }
+}
+
+/* Adicione esta regra ao final do seu style.css */
+body.no-scroll-x {
+  overflow-x: hidden;
+}
+
+/* -------------------------------LOJA--------------------------------------------------------------------------- */
+/* Container geral */
+.container {
+  text-align: center;
+  padding: 20px;
+}
+
+.container h1 {
+  color: #fff;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+.container p {
+  background: rgba(255, 255, 255, 0.85);
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+/* Grid de produtos */
+.store-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Card da loja */
+.store-card {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.store-card:hover {
+  transform: translateY(-5px);
+}
+
+.store-card h2 {
+  color: #2980b9;
+}
+
+.navbar-left a {
+  color: inherit; /* Usa a mesma cor do texto da navbar */
+  text-decoration: none; /* Remove o sublinhado */
+  font-size: inherit; /* Herdar tamanho da fonte da navbar */
+  font-weight: inherit; /* Herdar peso da fonte */
+}
+
+.navbar-left a:hover {
+  color: #4cafef; /* Cor ao passar o mouse, igual aos outros */
+}
+
+/*
+ * Adicione este código para estilizar o layout da loja em ambas as versões (PC e celular).
+ */
+.container {
+  padding: 20px;
+  text-align: center;
+  margin-top: 80px; /* Para não ficar embaixo da navbar */
+}
+
+.store-grid {
+  display: flex;
+  flex-wrap: wrap; /* Permite que os cards quebrem a linha */
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.store-card {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease-in-out;
+  flex: 1 1 300px; /* Permite que o card se ajuste automaticamente e tenha um tamanho base de 300px */
+  max-width: 400px;
+}
+
+.store-card:hover {
+  transform: translateY(-4px);
+}
+
+/* --------------------------------------------------------------------Placar------------------------------------ */
+.scoreboard {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  /* Altere esta linha para um valor maior */
+  margin-top: 120px; /* Dê mais espaço abaixo da navbar */
+}
+
+.team {
+  flex: 1;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  border-radius: 20px;
+  width: 300px; /* Largura base para o card */
+  max-width: 45%; /* Garante que não ocupe mais que 45% do espaço no PC */
+  flex-grow: 1; /* Permite que o card cresça para preencher o espaço disponível */
+}
+
+.team.blue {
+  background: linear-gradient(135deg, #007bff, #004085);
+}
+
+.team.red {
+  background: linear-gradient(135deg, #dc3545, #6a000f);
+}
+
+.points {
+  font-size: 8rem;
+  font-weight: bold;
+}
+
+.sets {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  opacity: 0.9;
+}
+
+button {
+  margin: 5px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.blue button {
+  background: #ffffffaa;
+  color: #004085;
+}
+
+.red button {
+  background: #ffffffaa;
+  color: #6a000f;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.team .button-group {
+  display: flex;
+  flex-wrap: wrap; /* Permite que os botões quebrem a linha */
+  justify-content: center;
+  gap: 10px; /* Espaço entre os botões */
+  width: 100%; /* Ocupa a largura total do card */
+}
+
+/* Garante que os botões sejam menores e se ajustem */
+.team button {
+  padding: 10px 15px; /* Reduz o padding */
+  font-size: 0.9rem; /* Reduz o tamanho da fonte */
+  flex-grow: 1; /* Permite que eles cresçam para preencher o espaço */
+  max-width: 150px; /* Limite máximo para o botão */
+}
+
+.reset-button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  background-color: #95a5a6; /* Cor cinza, para indicar que é uma ação de "reset" */
+  color: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.25s ease-in-out;
+  margin-top: 20px; /* Para dar um espaço do placar */
+}
+
+.reset-button:hover {
+  background-color: #7f8c8d;
+  transform: scale(1.05);
 }

@@ -232,3 +232,66 @@ document.addEventListener("DOMContentLoaded", () => {
   // 3. Clicar fora do modal (no fundo desfocado) também fecha
   backdrop.addEventListener("click", closeModal);
 });
+
+// Obtém o botão do hambúrguer e o menu de links
+const hamburger = document.querySelector(".hamburger");
+const navLinks = document.querySelector(".navbar-right");
+const body = document.body; // Adicionado: Seleciona o elemento body
+
+// Adiciona um "ouvinte de eventos" de clique ao botão do hambúrguer
+hamburger.addEventListener("click", () => {
+  // Alterna a classe 'active' para mostrar/esconder o menu
+  navLinks.classList.toggle("active");
+
+  // Alterna a classe 'active' no hambúrguer para animar o ícone (opcional)
+  hamburger.classList.toggle("active");
+
+  // NOVO: Alterna a classe 'no-scroll-x' no body para evitar a rolagem horizontal
+  body.classList.toggle("no-scroll-x");
+});
+
+//------------------------------------placar-----------------------------------
+let pointsBlue = 0;
+let pointsRed = 0;
+let setsBlue = 0;
+let setsRed = 0;
+
+function addPoint(team) {
+  if (team === "blue") {
+    pointsBlue++;
+    document.getElementById("points-blue").innerText = pointsBlue;
+  } else {
+    pointsRed++;
+    document.getElementById("points-red").innerText = pointsRed;
+  }
+}
+
+function addSet(team) {
+  if (team === "blue") {
+    setsBlue++;
+    document.getElementById("sets-blue").innerText = setsBlue;
+    pointsBlue = 0;
+    pointsRed = 0;
+  } else {
+    setsRed++;
+    document.getElementById("sets-red").innerText = setsRed;
+    pointsBlue = 0;
+    pointsRed = 0;
+  }
+  document.getElementById("points-blue").innerText = pointsBlue;
+  document.getElementById("points-red").innerText = pointsRed;
+}
+
+function resetScoreboard() {
+  // Obtém os elementos de pontuação e sets de cada time
+  const setsBlue = document.getElementById("sets-blue");
+  const pointsBlue = document.getElementById("points-blue");
+  const setsRed = document.getElementById("sets-red");
+  const pointsRed = document.getElementById("points-red");
+
+  // Zera os valores
+  setsBlue.innerHTML = "0";
+  pointsBlue.innerHTML = "0";
+  setsRed.innerHTML = "0";
+  pointsRed.innerHTML = "0";
+}

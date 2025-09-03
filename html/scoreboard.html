@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Placar</title>
-    <link rel="stylesheet" href="css/scoreboard.css" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <!-- Navbar -->
@@ -12,6 +12,11 @@
       <div class="navbar-left">
         <a href="index.html">SkillMatch⚽️</a>
       </div>
+      <button class="hamburger" aria-label="Abrir menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
       <div class="navbar-right">
         <a href="scoreboard.html">🆚Placar</a>
         <a href="store.html">🎾Loja</a>
@@ -22,19 +27,27 @@
       <div class="team blue">
         <div class="sets" id="sets-blue">0</div>
         <div class="points" id="points-blue">0</div>
-        <button onclick="addPoint('blue')">+ Ponto Azul</button>
-        <button onclick="addSet('blue')">+ Set Azul</button>
+        <div class="button-group">
+          <button onclick="addPoint('blue')">+ Ponto Azul</button>
+          <button onclick="addSet('blue')">+ Set Azul</button>
+        </div>
       </div>
 
       <!-- Time Vermelho -->
       <div class="team red">
         <div class="sets" id="sets-red">0</div>
         <div class="points" id="points-red">0</div>
-        <button onclick="addPoint('red')">+ Ponto Vermelho</button>
-        <button onclick="addSet('red')">+ Set Vermelho</button>
+        <div class="button-group">
+          <button onclick="addPoint('red')">+ Ponto Vermelho</button>
+          <button onclick="addSet('red')">+ Set Vermelho</button>
+        </div>
       </div>
+
+      <button class="reset-button" onclick="resetScoreboard()">
+        Zerar Placar
+      </button>
     </div>
 
-    <script src="javascript/scoreboard.js"></script>
+    <script src="javascript/script.js"></script>
   </body>
 </html>
