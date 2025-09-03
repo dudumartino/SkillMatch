@@ -383,7 +383,40 @@ ul {
   }
 }
 
-/* Adicione esta regra ao final do seu style.css */
+/*
+ * ADICIONE ESTE BLOCO de CSS no FINAL do seu style.css.
+ * Esta media query é para telas de celular em modo paisagem (deitado) ou tablets pequenos.
+ */
+@media (min-width: 576px) and (orientation: landscape) {
+  .scoreboard {
+    flex-direction: row; /* Coloca os times lado a lado novamente */
+    justify-content: center; /* Centraliza os times */
+    gap: 30px; /* Espaço entre os times */
+    margin-top: 100px; /* Ajusta a margem superior */
+  }
+
+  .team {
+    width: 280px; /* Uma largura fixa para os cards ficarem bem lado a lado */
+    max-width: 45%; /* Garante que não ultrapassem muito */
+    padding: 20px;
+  }
+
+  .sets,
+  .points {
+    font-size: 3rem; /* Volta o tamanho maior da fonte */
+  }
+
+  .team button {
+    font-size: 1rem; /* Volta o tamanho maior da fonte dos botões */
+    padding: 12px 15px;
+  }
+
+  .reset-button {
+    width: auto; /* O botão de reset volta a ter largura automática */
+    max-width: 200px; /* Limita a largura em modo paisagem */
+  }
+}
+
 body.no-scroll-x {
   overflow-x: hidden;
 }
