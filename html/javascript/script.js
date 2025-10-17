@@ -35,8 +35,8 @@ function addPlayerFromInput() {
   const name = document.getElementById("playerName").value.trim();
   const skill = parseInt(document.getElementById("playerSkill").value);
 
-  if (!name || isNaN(skill) || skill < 0 || skill > 10) {
-    alert("Preencha nome e nota de 0 a 10");
+  if (!name || isNaN(skill) || skill < 0 || skill > 5) {
+    alert("Preencha nome e nota de 0 a 5");
     return;
   }
 
