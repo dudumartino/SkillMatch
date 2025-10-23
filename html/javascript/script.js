@@ -270,11 +270,13 @@ function addSet(team) {
   if (team === "blue") {
     setsBlue++;
     document.getElementById("sets-blue").innerText = setsBlue;
+    // Zera pontos APENAS na lógica, o display é atualizado ao final da função
     pointsBlue = 0;
     pointsRed = 0;
   } else {
     setsRed++;
     document.getElementById("sets-red").innerText = setsRed;
+    // Zera pontos APENAS na lógica, o display é atualizado ao final da função
     pointsBlue = 0;
     pointsRed = 0;
   }
@@ -283,15 +285,15 @@ function addSet(team) {
 }
 
 function resetScoreboard() {
-  // Obtém os elementos de pontuação e sets de cada time
-  const setsBlue = document.getElementById("sets-blue");
-  const pointsBlue = document.getElementById("points-blue");
-  const setsRed = document.getElementById("sets-red");
-  const pointsRed = document.getElementById("points-red");
+  // 1. Zera as variáveis globais de JavaScript
+  pointsBlue = 0;
+  pointsRed = 0;
+  setsBlue = 0;
+  setsRed = 0;
 
-  // Zera os valores
-  setsBlue.innerHTML = "0";
-  pointsBlue.innerHTML = "0";
-  setsRed.innerHTML = "0";
-  pointsRed.innerHTML = "0";
+  // 2. Atualiza os elementos HTML (o que aparece na tela)
+  document.getElementById("sets-blue").innerText = setsBlue; // agora 0
+  document.getElementById("points-blue").innerText = pointsBlue; // agora 0
+  document.getElementById("sets-red").innerText = setsRed; // agora 0
+  document.getElementById("points-red").innerText = pointsRed; // agora 0
 }
